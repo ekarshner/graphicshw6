@@ -2,12 +2,51 @@ from display import *
 from matrix import *
 import math
 
+def add_box( points, x, y, z, width, height, depth ):
+    #front bottom
+    add_edge(edges, x,y,z, x + width, y, z)
+    #front leftside
+    add_edge(edges, x,y,z, x + width, y, z)
+    #front rightside
+    add_edge(edges, x,y,z, x + width, y, z)
+    #front top
+    add_edge(edges, x,y,z, x + width, y, z)
+    #back bottom
+    add_edge(edges, x,y,z, x + width, y, z)
+    #back leftside
+    add_edge(edges, x,y,z, x + width, y, z)
+    #back rightside
+    add_edge(edges, x,y,z, x + width, y, z)
+    #back top
+    add_edge(edges, x,y,z, x + width, y, z)
+    #center upperleft
+    add_edge(edges, x,y,z, x + width, y, z)
+    #center upperright
+    add_edge(edges, x,y,z, x + width, y, z)
+    #center bottomleft
+    add_edge(edges, x,y,z, x + width, y, z)
+    #center bottomright
+    add_edge(edges, x,y,z, x + width, y, z)
+
+def add_sphere( points, cx, cy, cz, r, step ):
+    #adds the sphere edges (not connecting points to each other, but rather to another point 1 unit away)
+    sphere = generate_sphere(points, cx, cy, cz, r, step)
+
+def generate_sphere( points, cx, cy, cz, r, step ):
+    #return a matrix of points
+
+def add_torus( points, cx, cy, cz, r0, r1, step ):
+    tor = generate_torus(points, cx, cy, cz, r0, r1, step)
+
+def generate_torus( points, cx, cy, cz, r0, r1, step ):
+    pass
 
 def add_circle( points, cx, cy, cz, r, step ):
     #print 'add_circle'
     i = 0
     lastx = cx + r
     lasty = cy
+    #for now, we're using float iteration. This might cause some things to be broken in the future, but we'll see.
     while i < (2 * math.pi):
         currx = (r * math.cos(2 * math.pi * i) + cx)
         curry = (r * math.sin(2 * math.pi * i) + cy)
@@ -23,6 +62,7 @@ def add_curve( points, x0, y0, x1, y1, x2, y2, x3, y3, step, curve_type ):
     i = 0.0
     lastx = x0
     lasty = y0
+    #for now, we're using float iteration. This might cause some things to be broken in the future, but we'll see.
     while i < 1.0:
         currx = 0
         curry = 0

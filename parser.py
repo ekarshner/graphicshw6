@@ -101,36 +101,7 @@ def parse_file( fname, edges, transform, screen, color ):
                           0.01,'bezier')
 
         elif line == 'box':
-            x = float(args[0])
-            y = float(args[1])
-            z = float(args[2])
-            width = float(args[3])
-            height = float(args[4])
-            depth = float(args[5])
-            #front bottom
-            add_edge(edges, x,y,z, x + width, y, z)
-            #front leftside
-            add_edge(edges, x,y,z, x + width, y, z)
-            #front rightside
-            add_edge(edges, x,y,z, x + width, y, z)
-            #front top
-            add_edge(edges, x,y,z, x + width, y, z)
-            #back bottom
-            add_edge(edges, x,y,z, x + width, y, z)
-            #back leftside
-            add_edge(edges, x,y,z, x + width, y, z)
-            #back rightside
-            add_edge(edges, x,y,z, x + width, y, z)
-            #back top
-            add_edge(edges, x,y,z, x + width, y, z)
-            #center upperleft
-            add_edge(edges, x,y,z, x + width, y, z)
-            #center upperright
-            add_edge(edges, x,y,z, x + width, y, z)
-            #center bottomleft
-            add_edge(edges, x,y,z, x + width, y, z)
-            #center bottomright
-            add_edge(edges, x,y,z, x + width, y, z)
+            add_box( points, float(args[0]), float(args[1]), float(args[2]), float(args[3]), float(args[4]), float(args[5]))
 
         elif line == 'sphere':
 
