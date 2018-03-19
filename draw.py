@@ -6,23 +6,23 @@ def add_box( points, x, y, z, width, height, depth ):
     #front bottom
     add_edge(edges, x,y,z, x + width, y, z)
     #front leftside
-    add_edge(edges, x,y,z, x + width, y, z)
+    add_edge(edges, x,y,z, x, y+ height, z)
     #front rightside
-    add_edge(edges, x,y,z, x + width, y, z)
+    add_edge(edges, x + width,y, z, x, y + height, z)
     #front top
-    add_edge(edges, x,y,z, x + width, y, z)
+    add_edge(edges, x,y + height,z, x + width, y + height, z)
     #back bottom
-    add_edge(edges, x,y,z, x + width, y, z)
+    add_edge(edges, x,y,z - depth, x + width, y, z- depth)
     #back leftside
-    add_edge(edges, x,y,z, x + width, y, z)
+    add_edge(edges, x, y, z - depth, x, y + height, z - depth)
     #back rightside
-    add_edge(edges, x,y,z, x + width, y, z)
+    add_edge(edges, x + width,y, z - depth, x + width, y + height, z- depth)
     #back top
-    add_edge(edges, x,y,z, x + width, y, z)
+    add_edge(edges, x,y + height,z - depth, x + width, y + height, z - depth)
     #center upperleft
-    add_edge(edges, x,y,z, x + width, y, z)
+    add_edge(edges, x,y + height,z, x, y + height, z - depth)
     #center upperright
-    add_edge(edges, x,y,z, x + width, y, z)
+    add_edge(edges, x + width,y + height,z, x + width, y + height, z - depth)
     #center bottomleft
     add_edge(edges, x,y,z, x + width, y, z)
     #center bottomright
@@ -39,7 +39,7 @@ def add_torus( points, cx, cy, cz, r0, r1, step ):
     tor = generate_torus(points, cx, cy, cz, r0, r1, step)
 
 def generate_torus( points, cx, cy, cz, r0, r1, step ):
-    pass
+    #returns a matrix of points
 
 def add_circle( points, cx, cy, cz, r, step ):
     #print 'add_circle'
