@@ -24,9 +24,9 @@ def add_box( points, x, y, z, width, height, depth ):
     #center upperright
     add_edge(edges, x + width,y + height,z, x + width, y + height, z - depth)
     #center bottomleft
-    add_edge(edges, x,y,z, x + width, y, z)
+    add_edge(edges, x,y,z, x, y, z - depth)
     #center bottomright
-    add_edge(edges, x,y,z, x + width, y, z)
+    add_edge(edges, x + width,y,z, x + width, y, z - depth)
 
 def add_sphere( points, cx, cy, cz, r, step ):
     #adds the sphere edges (not connecting points to each other, but rather to another point 1 unit away)
